@@ -6,6 +6,7 @@ $nik = $_POST['nik'];
 $passphrase = $_POST['passphrase'];
 $link = $_POST['link'];
 $pagecount = $_POST['halaman'];
+$base_url= $_POST['base_url'];
  
 $rand = rand();
 $ekstensi =  array('pdf');
@@ -20,6 +21,7 @@ if(!in_array($ext,$ekstensi) ) {
     move_uploaded_file($_FILES['pdf']['tmp_name'], '../tmp/'.$name);
     
     $baseLib = new BsreLibrary();
+    $baseLib->base_url = $base_url;
     $baseLib->path = '../tmp/'.$name;
     $baseLib->halaman = $pagecount;
     $baseLib->page = $pagecount;
@@ -36,7 +38,7 @@ if(!in_array($ext,$ekstensi) ) {
         print_r($sendDoc);
     } else {
         file_put_contents('../result/'.$name, $sendDoc);
-        echo "Generate Esign Success, <a href='./result/".$name."'>download</a>";
+        echo "Generate Esign Success, <a href='../result/".$name."'>download</a>";
     }
 }
 ?>

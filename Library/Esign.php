@@ -18,10 +18,11 @@ class BsreLibrary
     public $yAxis = 0;
     public $width = 100;
     public $height = 195;
+    public $base_url = 'https://esign.jepara.go.id/api';
 
     public function cekUser($idUser = 3674042810950002)
     {
-        $url = 'https://esign.jepara.go.id/api/user/status/3674042810950002';
+        $url = $this->base_url. '/user/status/3674042810950002';
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
@@ -35,7 +36,7 @@ class BsreLibrary
 
     public function cekDokumenByFile($path)
     {
-        $url = 'https://esign.jepara.go.id/api/sign/verify';
+        $url = $this->base_url. '/sign/verify';
         $headers = [
             'Content-Type: multipart/form-data',
             'User-Agent: '.$_SERVER['HTTP_USER_AGENT'],
@@ -62,7 +63,7 @@ class BsreLibrary
 
     public function signInDoc()
     {
-        $url = 'https://esign.jepara.go.id/api/sign/pdf';
+        $url = $this->base_url. '/sign/pdf';
         $headers = [
             'Content-Type: multipart/form-data',
             'User-Agent: '.$_SERVER['HTTP_USER_AGENT'],

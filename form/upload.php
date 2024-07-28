@@ -15,6 +15,10 @@
         <h2 class="text-center mt-3">Upload Esign BSRE</h2>
         <form action="uploadaksi.php" method="post" enctype="multipart/form-data">
             <div class="form-group mb-3">
+				<label>URL BSRE:</label>
+				<input type="text" class="form-control" placeholder="Masukkan URL BSRE" name="base_url" required="required">
+			</div>
+            <div class="form-group mb-3">
 				<label>username :</label>
 				<input type="text" class="form-control" placeholder="Masukkan username" name="username" required="required">
 			</div>
